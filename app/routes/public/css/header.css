@@ -1,0 +1,103 @@
+@import url("variables.css");
+
+header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 0.1px solid var(--font-sec);
+}
+
+.logo-contain {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /*   border: 1px dashed red;
+ */
+}
+
+.logo-contain img {
+  width: 45px;
+  height: 55px;
+  /*   border: 1px solid rebeccapurple;
+ */
+}
+
+.separator {
+  margin-right: 5px;
+  color: var(--separator);
+}
+
+#user {
+  font-weight: 600;
+}
+
+.services-contain {
+  /*   border: 1px dashed red;
+ */
+  display: flex;
+  flex: 1;
+  padding: 0 20px;
+  align-items: center;
+  gap: 15px;
+  justify-content: end;
+}
+
+.notification,
+.about {
+  /*   border: 1px dashed yellow;
+ */
+  display: flex;
+
+  border-radius: 5px;
+}
+
+.notification a,
+.about a,
+.user a {
+  text-decoration: none;
+  color: var(--font-sec);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*   border: 1px solid red;
+ */
+}
+
+.notification a i,
+.about a i {
+  font-size: 1.3rem;
+  background-color: transparent;
+}
+
+.user a img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--separator);
+}
+
+.notification a:hover,
+.about a:hover {
+  text-decoration: underline wavy;
+  text-decoration-color: var(--theme);
+  color: var(--font);
+}
+
+@media screen and (max-width: 900px) {
+  .services-contain {
+    display: none;
+  }
+
+  header {
+    padding: 20px 0;
+    justify-content: center;
+  }
+
+  .logo-contain {
+    padding-left: 0;
+    width: 100%;
+  }
+}

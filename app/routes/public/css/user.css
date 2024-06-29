@@ -1,0 +1,169 @@
+@import url("variables.css");
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--font-pri);
+}
+
+.contain {
+  width: 100%;
+  flex: 1 1;
+  display: flex;
+}
+
+main {
+  height: 90vh;
+  padding: 20px;
+  flex: 1 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  overflow: auto;
+  /*   border: 1px dashed red;
+ */
+}
+
+.card {
+  width: 80%;
+  border-radius: 5px;
+  background-color: var(--card);
+  border: 1px solid var(--separator);
+}
+
+.user-card {
+  display: flex;
+  padding: 20px;
+}
+
+.user-card .about {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  /*   border: 1px solid firebrick;
+ */
+}
+
+.profile-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*   border: 1px solid fuchsia;
+ */
+}
+
+.profile-image img {
+  height: 150px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--separator);
+}
+
+#name {
+  font-size: 1.8rem;
+  color: var(--font-pri);
+  font-weight: 600;
+}
+
+.user-card .about span {
+  font-size: 1rem;
+  color: var(--font-sec);
+}
+
+.user-info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user-info-card-header,
+.delete-user-card-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--separator);
+  width: 100%;
+}
+
+.table-user-data {
+  /*   border: 1px solid red;
+ */
+}
+
+.line,
+.line-blur {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.line-blur {
+  background-color: var(--hover-card);
+}
+
+.name {
+  width: 40%;
+}
+
+.value {
+  flex: 1 1;
+  /*   border: 1px solid aqua;
+ */
+}
+
+.value input[type="password"] {
+  border: none;
+  background-color: transparent;
+  color: var(--font-pri);
+  outline: none;
+}
+
+.user-info-card-footer {
+  padding: 10px 30px 30px 20px;
+}
+
+#btn-edit-user-settings {
+  width: 150px;
+  color: var(--font-pri);
+  text-decoration: none;
+  background-color: var(--button);
+  padding: 10px;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+#btn-edit-user-settings:hover {
+  background-color: var(--hover-button);
+  transition: 0.3s;
+}
+
+.delete-user-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#btn-delete-user {
+  width: 150px;
+  text-align: center;
+  background-color: #a62534;
+  padding: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 5px;
+  color: var(--font-pri);
+  transition: 0.3s;
+}
+#btn-delete-user:hover {
+  background-color: #8d2733;
+  transition: 0.3s;
+}

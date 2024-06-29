@@ -1,0 +1,120 @@
+@import url("variables.css");
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--font-pri);
+}
+
+.contain {
+  width: 100%;
+  flex: 1 1;
+  display: flex;
+}
+
+main {
+  padding: 20px;
+  gap: 20px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  /*   border: 1px solid yellow;
+ */
+}
+
+.card {
+  height: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: var(--card);
+  border: 1px solid var(--separator);
+}
+
+.sensor-list {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chart {
+  flex: 1;
+}
+
+.sensor-list-header {
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--separator);
+}
+
+.sensor-list-body {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+  /*   border: 1px solid olive;
+ */
+}
+
+.sensor-list-body a {
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+  color: var(--font-pri);
+  font-weight: 600;
+  transition: 0.3s;
+  padding: 10px;
+  gap: 5px;
+  border: 1px solid var(--separator);
+  border-radius: 8px;
+}
+
+.sensor-list-body a:hover {
+  background-color: var(--hover-card);
+  border-color: var(--theme);
+  transition: 0.3s;
+}
+
+#sensor-name {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  border-right: 1px solid var(--separator);
+
+  /*   border: 1px solid blue;
+ */
+}
+
+#sensor-state {
+  /*   border: 1px solid blue;
+ */
+  width: 50%;
+  color: #80d690;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  /*   background-color: rgba(37, 251, 37, 0.18);
+ */
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 900px) {
+  main {
+    flex: 1 1;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .chart,
+  .sensor-list {
+    width: 100%;
+  }
+}

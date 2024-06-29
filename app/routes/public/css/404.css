@@ -1,0 +1,94 @@
+@import url("variables.css");
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--font-pri);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+}
+
+.contain {
+  width: 100%;
+  flex: 1 1;
+  display: flex;
+}
+
+main {
+  padding: 20px;
+  gap: 60px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*   border: 1px solid yellow;
+ */
+  overflow-y: auto;
+}
+
+.animation,
+.error-msg {
+  /*   border: 1px dashed red;
+ */
+  width: 50%;
+}
+
+.animation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-msg {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.error-msg a {
+  width: 50%;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--font-pri);
+  background-color: var(--button);
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.error-msg a:hover {
+  transition: 0.3s;
+}
+
+main img {
+  width: 400px;
+  height: 400px;
+}
+
+@media screen and (max-width: 900px) {
+  main {
+    gap: 0;
+    flex-direction: column;
+  }
+
+  main img,
+  .error-msg {
+    width: 100%;
+  }
+
+  .error-msg {
+    text-align: center;
+  }
+
+  .error-msg a {
+    width: 100%;
+  }
+}

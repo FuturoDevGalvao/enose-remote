@@ -1,0 +1,254 @@
+@import url("variables.css");
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--font-pri) !important;
+}
+
+#log-in-form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding: 10px;
+  /*   border: 1px solid red;
+ */
+}
+
+.header-log-in-form,
+.body-log-in-form,
+.footer-log-in-form {
+  /*   border: 1px dashed yellow;
+ */
+}
+
+.header-log-in-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-log-in-form img {
+  width: 200px;
+  height: 180px;
+  /*   border: 1px solid red;
+ */
+}
+
+.body-log-in-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.box {
+  position: relative;
+  /*   background-color: red;
+ */
+}
+
+.fa-eye,
+.fa-eye-slash {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: #fafafa;
+}
+
+.box input {
+  height: 100%;
+  width: 100%;
+  font-size: 1rem;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  background-color: transparent;
+  color: var(--font-sec);
+}
+
+.box input::placeholder {
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.box label {
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  pointer-events: none;
+  font-size: 1.1rem;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.box input:focus ~ label,
+.box input:not(:placeholder-shown) ~ label {
+  transform: translateY(-25px);
+  left: 10px;
+  font-size: 0.9rem;
+}
+
+.box input:focus::placeholder {
+  opacity: 1;
+  transition: 0.4s;
+}
+
+.box input:focus {
+  border-color: var(--theme);
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.1rem;
+  opacity: 0;
+  color: red !important;
+  transition: 0.3s;
+}
+
+.show-error-message {
+  opacity: 1;
+  font-size: 0.8rem;
+}
+
+.footer-log-in-form {
+  margin-top: 30px;
+}
+
+.footer-log-in-form button {
+  width: 100%;
+  font-size: 1rem;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: var(--button);
+  color: var(--font-pri);
+  border-radius: 5px;
+}
+
+.modal-contain {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.652);
+  animation: fadeIn 0.3s ease-in-out;
+  transition: 0.2s all;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.close-modal-contain {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s all;
+}
+
+.modal {
+  position: relative;
+  padding: 20px;
+  background-color: var(--card);
+  color: var(--font-pri);
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 5;
+  border-radius: 5px;
+  border: 1px solid var(--separator);
+}
+
+.header-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-modal img {
+  border-radius: 5px;
+}
+
+.body-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+  gap: 10px;
+}
+
+.body-modal h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.body-modal p {
+  font-size: 0.9rem;
+  color: var(--font-sec);
+}
+
+.footer-modal {
+  border-top: 1px solid var(--separator);
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-modal button {
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  color: var(--button);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header-modal,
+.body-modal,
+.footer-modal {
+  /*   border: 1px dashed red;
+ */
+}
+
+#btb-close-modal {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#btn-show-password {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 900px) {
+  #log-in-form {
+    width: 350px;
+  }
+}

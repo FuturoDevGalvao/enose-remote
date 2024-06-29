@@ -1,0 +1,75 @@
+@import url("variables.css");
+
+#btn-menu-mobile {
+  display: none;
+  position: absolute;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--font-pri) !important;
+}
+
+.menu-mobile {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  height: 93%;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  margin-top: 65px;
+  gap: 20px;
+  padding: 0 50px;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg);
+  transition: 0.3s;
+}
+
+.menu-mobile nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /*   border: 1px solid red;
+ */
+}
+
+.menu-mobile nav a {
+  /*   border: 1px solid green;
+ */
+  padding: 20px;
+  display: flex;
+  text-decoration: none;
+  color: var(--font-pri);
+  background-color: var(--card);
+  border-radius: 8px;
+}
+
+.show-menu-mobile {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.services-contain-mobile {
+  width: 100%;
+  /*   border: 1px solid red;
+ */
+  display: flex;
+}
+
+.services-contain-mobile .notification,
+.services-contain-mobile .about {
+  width: 50%;
+  /*   border: 1px dashed yellow;
+ */
+  display: flex;
+  padding: 20px 0;
+  justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+  #btn-menu-mobile {
+    display: inline;
+  }
+}

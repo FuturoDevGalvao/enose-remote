@@ -1,0 +1,117 @@
+@import url("variables.css");
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg);
+  color: var(--font-pri);
+  padding: 40px 20px;
+}
+
+.left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  /*   border: 1px dashed red;
+ */
+}
+
+.right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  /*   background-color: red;
+ */
+  text-align: justify;
+}
+
+.left img {
+  width: 60%;
+}
+
+.right h1 {
+  font-size: max(1.5rem, 1.5vw);
+}
+
+.right p {
+  width: 100%;
+  font-size: max(1rem, 1.1vw);
+  font-weight: 400;
+  color: var(--font-sec);
+  /*   border: 1px solid yellow;
+ */
+}
+
+.right p span {
+  padding: 0px 5px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--font-pri);
+  background-color: #abb5bf6f;
+}
+
+.tutor {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  border-left: 3px solid var(--button);
+  flex-direction: column;
+  /*   border: 1px dashed blue;
+ */
+}
+
+.stage {
+  position: relative;
+  background-color: var(--card);
+  border-top: 1px solid var(--separator);
+  border-right: 1px solid var(--separator);
+  border-bottom: 1px solid var(--separator);
+  display: flex;
+  align-items: center;
+  height: 120px;
+  padding: 20px 30px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.stage p {
+  color: var(--font-pri);
+}
+
+.stage-number {
+  position: absolute;
+  top: 40px;
+  left: -17px;
+  height: 32px;
+  width: 32px;
+  padding-left: 2px;
+  padding-right: 0.8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  background-color: var(--button);
+  color: var(--font-pri);
+}
+
+@media screen and (max-width: 900px) {
+  .right {
+    flex: 1 1;
+    width: 100% !important;
+  }
+
+  .tutor {
+    width: 100%;
+  }
+}
