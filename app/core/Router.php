@@ -38,7 +38,8 @@ class Router
                 "/home" => fn () => self::load("HomeController", "redirect"),
                 "/sensors" => fn () => self::load("SensorsController", "redirect"),
                 "/login" => fn () => self::load("LoginController", "redirect"),
-                "/user" => fn () => self::load("UserController", "redirect")
+                "/user" => fn () => self::load("UserController", "redirect"),
+                "/auth/email" => fn () => self::load("AuthController", "redirect")
             ],
             "post" => [
                 "/login" => fn () => self::load("LoginController", "redirect")
