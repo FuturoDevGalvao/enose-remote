@@ -103,8 +103,12 @@ if (isset($_SESSION["user"])) {
                     <div class="line-blur">
                         <span class="name">avatar:</span>
                         <span class="value">
-                            <img src="../../public/assets/M.png" alt="user-image" width="50px">
+                            <img src="<?= $pahtToProfileImage ?>" alt="user-image" width="50px" id="profileImage">
                             <input type="file" name="profileImage" id="inputProfileImage" readonly>
+                            <label for="inputProfileImage" id="labelProfileImage">
+                                nova foto
+                                <i class="fa-solid fa-file-arrow-up"></i>
+                            </label>
                         </span>
                     </div>
                     <div class="line">

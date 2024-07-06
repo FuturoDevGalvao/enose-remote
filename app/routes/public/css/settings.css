@@ -22,7 +22,8 @@ main {
   justify-content: center;
   align-items: center;
   overflow: auto;
-  border: 1px solid yellow;
+  /*   border: 1px solid yellow;
+ */
 }
 
 #name {
@@ -86,11 +87,12 @@ main {
  */
 }
 
-.value img {
+#profileImage {
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  border: 1px dashed red;
+  /*   border: 1px dashed red;
+ */
 }
 
 #inputName,
@@ -137,9 +139,20 @@ main {
  */
 }
 
-.value input[type="file"] {
-  /*   border: 1px solid red;
- */
+#inputProfileImage {
+  border: 1px solid red;
+  display: none;
+}
+
+#labelProfileImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: var(--button);
+  cursor: pointer;
 }
 
 .user-info-card-footer {

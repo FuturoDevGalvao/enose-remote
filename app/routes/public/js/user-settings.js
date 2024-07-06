@@ -11,6 +11,7 @@ const getModalElements = () => {
 const getFormElements = () => {
   return {
     form: document.querySelector("form"),
+    profileImage: document.getElementById("profileImage"),
     inputs: {
       inputProfileImage: document.getElementById("inputProfileImage"),
       inputName: document.getElementById("inputName"),
@@ -39,7 +40,22 @@ const toggleModeInput = (input) => {
   input.classList.toggle("edition-mode");
 };
 
-const toggleVisibilityActionBtnsContain = () => {};
+const showPreviewImageSelected = () => {
+  const { inputProfileImage } = getFormElements().inputs;
+  const { profileImage } = getFormElements();
+
+  const image = inputProfileImage.files[0];
+  const defaultImage = image.src;
+  const fileReader = new FileReader();
+
+  fileReader.onloadend = () => (profileImage.src = fileReader.result);
+
+  if (image) {
+    fileReader.readAsDataURL(image);
+  } else {
+    image.src = defaultImage;
+  }
+};
 
 const activeEditionMode = () => {
   const { inputName, inputEmail, inputPassword } = getFormElements().inputs;
@@ -56,8 +72,11 @@ const activeEditionMode = () => {
 
 export const addListenerInBntsEditionUserSettings = () => {
   const { btnEdit, btnsActionsContain } = getFormElements().buttons;
+  const { inputProfileImage } = getFormElements().inputs;
   const { btnSaveEdition, btnCalcelEdition, actionContain } = btnsActionsContain;
   const { btnConfirmEdition, btnToDenyEdition } = getModalElements().buttons;
+
+  inputProfileImage.addEventListener("change", showPreviewImageSelected);
 
   btnEdit.addEventListener("click", activeEditionMode);
 
