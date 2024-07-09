@@ -1,1 +1,0 @@
-select * FROM profile_images;
