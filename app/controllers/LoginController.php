@@ -29,7 +29,45 @@ class LoginController
         exit;
     }
 
-    public static function validateUser(User $user): User |bool
+    public static function login()
+    {
+        $request = new \app\http\Request;
+        $showModal = false;
+
+        if (isset($request->getPostVars()["email"]) and isset($request->getPostVars()["password"])) {
+
+            $postVars = $request->getPostVars();
+            $user = LoginController::validateUser(new User(email: $postVars["email"], password: $postVars["password"]));
+
+            if ($user !== false) {
+                LoginController::createNewSessionForUser($user);
+
+                if (!$user->getEmailValidated()) {
+                    $sent = AuthController::sendEmailValidation($user);
+                    if ($sent) AuthController::redirect();
+                } else {
+                    HomeController::redirect();
+                }
+            } else {
+                return $showModal = true;
+            }
+        }
+
+        return $showModal;
+    }
+
+    public static function getView(bool $showModal = false)
+    {
+        echo View::render(
+            template: "login",
+            data: [
+                "title" => "LOGIN",
+                "showModal" => $showModal
+            ]
+        );
+    }
+
+    public static function validateUser(User $user): User | bool
     {
         return LoginModel::getUser($user) ?? false;
     }
