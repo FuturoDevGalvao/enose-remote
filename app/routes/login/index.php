@@ -11,9 +11,9 @@ $showModal = false;
 if (isset($request->getPostVars()["email"]) and isset($request->getPostVars()["password"])) {
 
     $postVars = $request->getPostVars();
-    $user = LoginModel::getUser(new User(email: $postVars["email"], password: $postVars["password"]));
+    $user = LoginController::validateUser(new User(email: $postVars["email"], password: $postVars["password"]));
 
-    if ($user !== null) {
+    if ($user !== false) {
         LoginController::createNewSessionForUser($user);
 
         if (!$user->getEmailValidated()) {

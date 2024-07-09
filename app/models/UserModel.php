@@ -12,7 +12,7 @@ use \PDOException;
 
 class UserModel
 {
-    public static function getPahtToProfileImage(User $user): ?string
+    public static function getPahtToProfileImageUser(User $user): ?string
     {
         try {
             $instance = Connection::getInstance();

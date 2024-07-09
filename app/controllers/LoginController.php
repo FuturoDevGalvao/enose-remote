@@ -6,6 +6,7 @@ namespace app\controllers;
 
 use app\database\entyties\User;
 use app\resources\utils\View;
+use app\models\LoginModel;
 
 class LoginController
 {
@@ -26,6 +27,11 @@ class LoginController
         $uri = sprintf("/home");
         header("Location: $uri");
         exit;
+    }
+
+    public static function validateUser(User $user): User |bool
+    {
+        return LoginModel::getUser($user) ?? false;
     }
 
     public static function createNewSessionForUser(User $user)
