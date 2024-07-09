@@ -1,0 +1,40 @@
+CREATE DATABASE IF NOT EXISTS enose;
+
+USE enose;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(75) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    email_validated BOOLEAN DEFAULT FALSE,
+    validation_token CHAR(32) NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+); 
+
+CREATE TABLE profile_images (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    path VARCHAR(150) NOT NULL,
+    data_upload TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    user_id INT NOT NULL,
+    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE sensors (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(125) NOT NULL
+);
+
+CREATE TABLE gases (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(125) NOT NULL
+);
+
+CREATE TABLE sensors_gases (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sensor_id INT NOT NULL,
+    gases_id INT NOT NULL,
+    sensitivity DOUBLE NOT NULL,
+    CONSTRAINT fk_sensor_id FOREIGN KEY (sensor_id) REFERENCES sensors(id),
+    CONSTRAINT fk_gases_id FOREIGN KEY (gases_id) REFERENCES gases(id)
+);
