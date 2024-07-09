@@ -22,7 +22,7 @@ if (isset($request->getQueryParams()["session_destroy"])) {
 if (isset($_SESSION["user"])) {
     $user = User::fromArray($_SESSION["user"]);
     $pahtToProfileImage =
-        UserModel::getPahtToProfileImage($user) ?? sprintf("../public/assets/%s.png", ucfirst(substr($user->getName(), 0, 1)));
+        UserController::getPahtToProfileImage($user) ?? sprintf("../public/assets/%s.png", ucfirst(substr($user->getName(), 0, 1)));
 
     /*     echo "<pre>";
     echo "/home => line 24: </br>";
