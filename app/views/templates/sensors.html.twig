@@ -1,0 +1,30 @@
+{% extends "page.html.twig" %} 
+
+{% block specificStyles %}
+    <link rel="stylesheet" href="../public/css/sensors.css">
+{% endblock %}
+
+{% block content %}
+  <div class="sensor" id="mq3">
+    <div class="sensor-header">
+      <h2 id="name-sensor">MQ3</h2>
+    </div>
+    <div class="sensor-footer">
+      <div id="chart-mq3"></div>
+    </div>
+  </div>
+
+  <div class="sensor" id="mq5">
+    <div class="sensor-header">
+      <h2 id="name-sensor">MQ5</h2>
+    </div>
+    <div class="sensor-footer">
+      <div id="chart-mq5"></div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block specificScripts %}
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="../public/js/sensors-chart.js"></script>
+{% endblock %}

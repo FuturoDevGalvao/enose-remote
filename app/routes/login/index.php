@@ -1,14 +1,19 @@
 <?php
 
-use app\controllers\LoginController;
-
 require_once __DIR__ . "/../../../vendor/autoload.php";
 
+use app\controllers\LoginController;
+
 $request = new app\http\Request;
-$logged = false;
+$showModal = false;
 
 if ($request->getMethod() === "post") {
-    $logged = LoginController::login();
+    $showModal = LoginController::login();
 }
 
-LoginController::getView(showModal: $logged);
+LoginController::index(
+    data: [
+        "title" => "LOGIN",
+        "showModal" => $showModal
+    ]
+);
