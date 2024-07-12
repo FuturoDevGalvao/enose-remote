@@ -9,9 +9,9 @@ use Twig\Environment;
 
 class View
 {
-    public static function render(string $template, $data): string
+    public static function render(string $template, array $data): string
     {
-        $loader = new FilesystemLoader(__DIR__ . "/../../view/templates");
+        $loader = new FilesystemLoader(__DIR__ . "/../../views/templates");
         $twig = new Environment($loader);
 
         return $twig->render($template . ".html.twig", $data);

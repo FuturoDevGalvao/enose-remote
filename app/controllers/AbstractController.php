@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
-class MainController
+abstract class AbstractController
 {
+    abstract public static function redirect();
+
+    abstract public static function index(array $data);
+
     public static function logout(bool $session_destroy)
     {
         if ($session_destroy) {

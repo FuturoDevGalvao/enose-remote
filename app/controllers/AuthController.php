@@ -9,13 +9,18 @@ use app\models\AuthModel;
 use app\resources\utils\Email;
 use app\resources\utils\View;
 
-class AuthController
+class AuthController extends AbstractController
 {
     public static function redirect()
     {
         $uri = sprintf("/auth/email");
         header("Location: $uri");
         exit;
+    }
+
+    public static function index($data)
+    {
+        echo View::render("auth", $data);
     }
 
     public static function sendEmailValidation(User $user): bool

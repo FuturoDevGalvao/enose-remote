@@ -7,7 +7,7 @@ namespace app\controllers;
 use app\resources\utils\View;
 use app\models\HomeModel;
 
-class HomeController
+class HomeController extends AbstractController
 {
     public static function redirect()
     {
@@ -16,12 +16,11 @@ class HomeController
         exit;
     }
 
-    public static function getHome(array $userData = null)
+    public static function index(array $data = [])
     {
-        if ($userData !== null) {
-            echo View::render("home", [...$userData, ...HomeModel::getData()]);
-        } else {
-            echo View::render("home", HomeModel::getData());
-        }
+        echo View::render(
+            template: "home",
+            data: $data
+        );
     }
 }

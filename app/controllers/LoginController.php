@@ -8,7 +8,7 @@ use app\database\entyties\User;
 use app\resources\utils\View;
 use app\models\LoginModel;
 
-class LoginController
+class LoginController extends AbstractController
 {
     public static function redirect()
     {
@@ -17,16 +17,12 @@ class LoginController
         exit;
     }
 
-    public static function getLogin()
+    public static function index(array $data)
     {
-        echo View::render("login", []);
-    }
-
-    public static function redirectToHome(User $user)
-    {
-        $uri = sprintf("/home");
-        header("Location: $uri");
-        exit;
+        echo View::render(
+            template: "login",
+            data: $data
+        );
     }
 
     public static function login()
@@ -54,17 +50,6 @@ class LoginController
         }
 
         return $showModal;
-    }
-
-    public static function getView(bool $showModal = false)
-    {
-        echo View::render(
-            template: "login",
-            data: [
-                "title" => "LOGIN",
-                "showModal" => $showModal
-            ]
-        );
     }
 
     public static function validateUser(User $user): User | bool
