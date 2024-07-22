@@ -11,8 +11,8 @@ class Connection
 {
     private static ?PDO $instance = null;
     private static string
-        $dbName = "enose",
-        $host = "127.0.0.1",
+        $dbName,
+        $host,
         $user,
         $pass;
 
@@ -20,6 +20,9 @@ class Connection
     {
         if (self::$instance === null) {
             Dotenv::createImmutable(__DIR__ . "/../../")->load();
+
+            self::$host = $_ENV["MARIADB_HOST"];
+            self::$dbName = $_ENV["DB_NAME"];
 
             self::$user = $_ENV["MARIADB_USER"];
             self::$pass = $_ENV["MARIADB_PASS"];
