@@ -4,6 +4,7 @@ require_once __DIR__ . "/../../vendor/autoload.php";
 
 use app\database\Connection;
 use app\database\entyties\User;
+use app\database\entyties\Sensor;
 
 /* Lógica para popular corretamente o banco de dados */
 
@@ -20,6 +21,7 @@ function generateToken(int $size): string
 $instance = Connection::getInstance();
 
 $users = [];
+$sensors = [];
 
 $users[] = new User(
     email: "tete@gmail.com",
@@ -35,6 +37,9 @@ $users[] = new User(
     validationToken: generateToken(16)
 );
 
+$sensors[] = new Sensor(name: "MQ5");
+
+$sensors[] = new Sensor(name: "MQ5");
 
 foreach ($users as $indice => $user) {
     $state = $instance->prepare(
@@ -49,5 +54,18 @@ foreach ($users as $indice => $user) {
 
     $state->execute();
 
-    echo $state ? "INSERIDO COM SUCESSO" : "ERRO AO INSERIR" . PHP_EOL;
+    echo $state ? "NEW USER INSERIDO COM SUCESSO" : "ERRO AO INSERIR NEW USE" . PHP_EOL;
+}
+
+
+foreach ($sensors as $key => $value) {
+    $state = $instance->prepare(
+        "INSERT INTO sensors (name) VALUES (:n)"
+    );
+
+    $state->bindValue(":n", $value->getName());
+
+    $state->execute();
+
+    echo $state ? "NEW SENSOR INSERIDO COM SUCESSO" : "ERRO AO INSERIR NEW SENSOR" . PHP_EOL;
 }

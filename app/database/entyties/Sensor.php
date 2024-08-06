@@ -7,7 +7,7 @@ namespace app\database\entyties;
 class Sensor
 {
     public function __construct(
-        private int $id,
+        private int $id = 0,
         private string $name
     ) {
     }

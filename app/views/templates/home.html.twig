@@ -20,14 +20,16 @@
     <div class="sensor-list-body">
       <a href="/sensors#mq3">
         <span id="sensor-name">mq3</span>
-        <span id="sensor-state">ativo</span>
+        <span class="sensor-state" id="mq3-state">ativo</span>
       </a>
       <a href="/sensors#mq5">
         <span id="sensor-name">mq5</span>
-        <span id="sensor-state">ativo</span>
+        <span class="sensor-state" id="mq5-state">ativo</span>
       </a>
     </div>
   </div>
 {% endblock %}
 
-{% block specificScripts %}{% endblock %}
+{% block specificScripts %}
+    <script type="module" src="../public/js/wsclient.js"></script>
+{% endblock %}
